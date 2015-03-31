@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Weather Searcher</title>
+  <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/main.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="js/app.js"></script>
+</head>
+<body>
+  <div class="contained">
+    <h1>Weather Searcher</h1>
+      <form>
+        <input type="search" name="search" id="search" placeholder="Location">
+        <input type="submit" value="Search" id="submit">
+        <input type="button" value="Use My Current Location" id="current_location">
+      </form>
+  </div>
+  <div id="weather_results" class="contained">
+  </div>
+  <div id="footer" class="contained">
+   <a href="http://www.wunderground.com"><img id="wu_logo" src="http://icons.wxug.com/logos/PNG/wundergroundLogo_4c_horz.png" alt="Weather Underground"></a>
+   <p>Powered by Weather Underground</p>
+   <p>Site &copy; 2015 Merritt Lawrenson</p>
+  </div>
+</body>
+</html>
