@@ -1,6 +1,5 @@
 $(document).ready(function() {
-  var wuurl;
-  var wuoptions;
+
   function wucallback(data) { // Callback for AJAX
     if (data.current_observation != undefined) { // If location found and weather retrived
       var weatherHTML = '<h3>Currently at '+data.current_observation.display_location.full+':</h3>';
@@ -19,7 +18,7 @@ $(document).ready(function() {
         evt.preventDefault();
         var searchLocation = $(this).parent().text();
         var wuurl = "http://api.wunderground.com/api/e0bb37aff4e256e4/conditions/q/"+searchLocation+".json";
-        $.getJSON(wuurl, wuoptions, wucallback);
+        $.getJSON(wuurl, wucallback);
       });
     } else if (data.response.error != undefined) { // If an error is returned
       $('#weather_results').html('<p>Error: '+data.response.error.description+'</p>');
@@ -33,17 +32,24 @@ $(document).ready(function() {
   $('form').submit(function (evt) { // AJAX request for location search
     evt.preventDefault();
     var searchLocation = $('#search').val();
-    var wuurl = "http://api.wunderground.com/api/e0bb37aff4e256e4/conditions/q/"+searchLocation+".json";
-    $.getJSON(wuurl, wuoptions, wucallback);
+    if (searchLocation === "") { // Don't actually request if no location is entered
+      return;
+    } else { // Otherwise you're good to go
+      var wuurl = "http://api.wunderground.com/api/e0bb37aff4e256e4/conditions/q/"+searchLocation+".json";
+      $.getJSON(wuurl, wucallback)
+    }
   });
 
   $('#current_location').click(function (evt) { // AJAX request for current location
     evt.preventDefault();
     var wuurl = "http://api.wunderground.com/api/e0bb37aff4e256e4/conditions/q/autoip.json";
-    $.getJSON(wuurl, wuoptions, wucallback);
+    $.getJSON(wuurl, wucallback);
   });
   
-});
+  $(document).ajaxError(function() { // Display error if weather JSON could not be retrieved
+    var errorHTML = '<p>Weather data could not be found. Check your connection and try again.</p>';
+    $('#weather_results').html(errorHTML);
+    $('#weather_results').show();
+  });
 
-//error states not yet implemented:
-  //connection error
+});
