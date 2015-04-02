@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  var wuurl
-  var wuoptions
+  var wuurl;
+  var wuoptions;
   function wucallback(data) { // Callback for AJAX
     if (data.current_observation != undefined) { // If location found and weather retrived
       var weatherHTML = '<h3>Currently at '+data.current_observation.display_location.full+':</h3>';
@@ -18,9 +18,9 @@ $(document).ready(function() {
       $('#weather_results a').click(function (evt) { // Query weather for location results when one is selected
         evt.preventDefault();
         var searchLocation = $(this).parent().text();
-        var wuurl = "http://api.wunderground.com/api/e0bb37aff4e256e4/conditions/q/"+searchLocation+".json"
+        var wuurl = "http://api.wunderground.com/api/e0bb37aff4e256e4/conditions/q/"+searchLocation+".json";
         $.getJSON(wuurl, wuoptions, wucallback);
-      })
+      });
     } else if (data.response.error != undefined) { // If an error is returned
       $('#weather_results').html('<p>Error: '+data.response.error.description+'</p>');
       $('#weather_results').show();
@@ -33,7 +33,7 @@ $(document).ready(function() {
   $('form').submit(function (evt) { // AJAX request for location search
     evt.preventDefault();
     var searchLocation = $('#search').val();
-    var wuurl = "http://api.wunderground.com/api/e0bb37aff4e256e4/conditions/q/"+searchLocation+".json"
+    var wuurl = "http://api.wunderground.com/api/e0bb37aff4e256e4/conditions/q/"+searchLocation+".json";
     $.getJSON(wuurl, wuoptions, wucallback);
   });
 
