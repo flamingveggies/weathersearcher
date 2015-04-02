@@ -10,14 +10,14 @@ $(document).ready(function() {
     } else if (data.response.results != undefined) { // If multiple locations found, display list
       var resultsHTML = '<h3>Multiple Results Found:</h3>';
       $.each(data.response.results, function (i, results) {
-        resultsHTML += '<p><a href="#">'+results.city+', '+(results.country_name != "USA" ? results.country_name : results.state)+'</a></p>';
+        resultsHTML += '<p id="'+results.l+'"><a href="#">'+results.city+', '+(results.country_name != "USA" ? results.country_name : results.state)+'</a></p>';
       });
       $('#weather_results').html(resultsHTML);
       $('#weather_results').show();
       $('#weather_results a').click(function (evt) { // Query weather for location results when one is selected
         evt.preventDefault();
-        var searchLocation = $(this).parent().text();
-        var wuurl = "http://api.wunderground.com/api/e0bb37aff4e256e4/conditions/q/"+searchLocation+".json";
+        var searchID = $(this).parent().attr("id");
+        var wuurl = "http://api.wunderground.com/api/e0bb37aff4e256e4/conditions"+searchID+".json";
         $.getJSON(wuurl, wucallback);
       });
     } else if (data.response.error != undefined) { // If an error is returned
