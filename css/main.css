@@ -78,14 +78,17 @@ header, section, footer {
   display: none;
 }
 
+#forecast {
+  display: none;
+}
+
 #wu_logo {
   float: right;
   margin: auto;
   height: 38px;
 }
 
-h1,
-h2 {
+h1, h2 {
   font-size: 2.4em;
   font-weight: 500;
   margin-bottom: 8px;
