@@ -4,8 +4,8 @@ $(document).ready(function() {
     if (data.current_observation !== undefined) { // If location found and weather retrived
       var conditionsHTML = '<h3>Currently at '+data.current_observation.display_location.full+':</h3><p>'+data.current_observation.weather+' &mdash; '+data.current_observation.temp_f+'&deg;F</p><img src="'+data.current_observation.icon_url+'">';
       var forecastHTML = '<h3>Forecast for '+data.current_observation.display_location.full+':</h3>';
-      $.each(data.forecast.txt_forecast.forecastday, function (i, forecast) {
-        forecastHTML += '<p>'+forecast.title+'</p>'
+      $.each(data.forecast.simpleforecast.forecastday, function (i, forecast) {
+        forecastHTML += '<p>'+forecast.date.weekday+'</p><img src="'+forecast.icon_url+'" alt="'+forecast.icon+'"><p>'+forecast.high.fahrenheit+'&deg;F '+forecast.low.fahrenheit+'&deg;F</p>'
       });
       $('#results').hide();
       $('#conditions').html(conditionsHTML);
