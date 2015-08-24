@@ -74,11 +74,7 @@ header, section, footer {
   margin: 0 auto 30px auto;
 }
 
-#weather_results {
-  display: none;
-}
-
-#forecast {
+#results, #conditions, #forecast {
   display: none;
 }
 
