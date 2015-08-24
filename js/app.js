@@ -1,13 +1,13 @@
 $(document).ready(function() {
 
   function wucallback(data) { // Callback for AJAX
-    if (data.current_observation != undefined) { // If location found and weather retrived
+    if (data.current_observation !== undefined) { // If location found and weather retrived
       var weatherHTML = '<h3>Currently at '+data.current_observation.display_location.full+':</h3>';
       weatherHTML += '<p>'+data.current_observation.weather+' &mdash; '+data.current_observation.temp_f+'&deg;F</p>';
       weatherHTML += '<img src="'+data.current_observation.icon_url+'">';
       $('#weather_results').html(weatherHTML);
       $('#weather_results').show();
-    } else if (data.response.results != undefined) { // If multiple locations found, display list
+    } else if (data.response.results !== undefined) { // If multiple locations found, display list
       var resultsHTML = '<h3>Multiple Results Found:</h3>';
       $.each(data.response.results, function (i, results) {
         resultsHTML += '<p id="'+results.l+'"><a href="#">'+results.city+', '+(results.country_name != "USA" ? results.country_name : results.state)+'</a></p>';
@@ -20,7 +20,7 @@ $(document).ready(function() {
         var wuurl = "http://api.wunderground.com/api/e0bb37aff4e256e4/conditions"+searchID+".json";
         $.getJSON(wuurl, wucallback);
       });
-    } else if (data.response.error != undefined) { // If an error is returned
+    } else if (data.response.error !== undefined) { // If an error is returned
       $('#weather_results').html('<p>Error: '+data.response.error.description+'</p>');
       $('#weather_results').show();
     } else { // If all else fails
