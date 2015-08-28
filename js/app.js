@@ -7,9 +7,11 @@ $(document).ready(function() {
       $.each(data.forecast.simpleforecast.forecastday, function (i, forecast) {
         forecastHTML += '<p>'+forecast.date.weekday+'</p><img src="'+forecast.icon_url+'" alt="'+forecast.icon+'"><p>'+forecast.high.fahrenheit+'&deg;F '+forecast.low.fahrenheit+'&deg;F</p>'
       });
+      var currentLocationHTML = '<li><img src="' + data.current_observation.icon_url + '">' + data.current_observation.display_location.full + ' ' + data.current_observation.temp_f +  '&deg;F<button class="savelocation">Save</button></li>';
       $('#results').hide();
       $('#conditions').html(conditionsHTML);
       $('#forecast').html(forecastHTML);
+      $('#currentlocation').html(currentLocationHTML);
       $('#conditions').show();
       $('#forecast').show();
     } else if (data.response.results !== undefined) { // If multiple locations found, display list
@@ -64,5 +66,7 @@ $(document).ready(function() {
     $('#forecast').hide();
     $('#results').show();
   });
+
+
 
 });
