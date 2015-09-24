@@ -4,36 +4,46 @@
   <meta charset="utf-8">
   <title>Weather Searcher</title>
   <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-<!--   <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/bootflat.min.css"> -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootflat.min.css"> 
   <link rel="stylesheet" href="css/main.css">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 </head>
 <body>
-  <header>
-    <h1>Weather Searcher</h1>
-    <form>
-      <input type="search" name="search" id="search" placeholder="Location">
-      <input type="submit" value="Search" id="submit">
-      <input type="button" value="Use My Current Location" id="current_location">
-    </form>
-    <ul id="savedlocations">
-    <a href="#" id="currentlocation"><a>
-    </ul>
-  </header>
-  <section id="results">
-  </section>
-  <section id="conditions">
-  </section>
-  <section id="forecast">
-  </section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <header>
+          <h1>Weather Searcher</h1>
+          <form>
+            <input type="search" name="search" id="search" placeholder="Location">
+            <input type="submit" value="Search" id="submit">
+            <input type="button" value="Use My Current Location" id="current_location">
+          </form>
+          <ul id="savedlocations">
+          <a href="#" id="currentlocation"></a>
+          </ul>
+        </header>
+        <section id="results">
+        </section>
+      </div>
+      <div class="col-md-4">
+        <section id="conditions">
+        </section>
+      </div>
+      <div class="col-md-4">
+        <section id="forecast">
+        </section>
+      </div>
+    </div>
+  </div>
   <footer>
    <a href="http://www.wunderground.com/?apiref=dbf3ee29ef4877dd"><img id="wu_logo" src="http://icons.wxug.com/logos/PNG/wundergroundLogo_4c_horz.png" alt="Weather Underground"></a>
    <p><a href="http://www.wunderground.com/?apiref=dbf3ee29ef4877dd">Powered by Weather Underground</a></p>
    <p><a href="../">Site &copy; 2015 Merritt Lawrenson</a></p>
   </footer>
   <script src="js/jquery-1.11.3.min.js"></script>
-<!--   <script src="js/bootstrap.min.js"></script> -->
+  <script src="js/bootstrap.min.js"></script> 
   <script src="js/app.js"></script>
 </body>
 </html>
