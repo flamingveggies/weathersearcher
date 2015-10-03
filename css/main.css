@@ -170,6 +170,10 @@ body {
   height: 38px;
 }
 
+.profile-pic {
+  border-radius: 100%;
+}
+
 #results-wrapper, #conditions-wrapper, #forecast-wrapper {
   display: none;
 }
