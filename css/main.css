@@ -161,3 +161,15 @@
 /*  }*/
 
 /*}*/
+
+body {
+  background-color: #FC6E51;
+}
+
+#wu_logo {
+  height: 38px;
+}
+
+#results-wrapper, #conditions-wrapper, #forecast-wrapper {
+  display: none;
+}

@@ -12,28 +12,49 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-4">
-        <header>
-          <h1>Weather Searcher</h1>
-          <form>
-            <input type="search" name="search" id="search" placeholder="Location">
-            <input type="submit" value="Search" id="submit">
-            <input type="button" value="Use My Current Location" id="current_location">
-          </form>
-          <ul id="savedlocations">
-          <a href="#" id="currentlocation"></a>
-          </ul>
+      <div class="col-md-4" id="header-wrapper">
+        <header class="panel panel-default">
+          <div class="panel panel-heading">Weather Searcher</div>
+          <div class="panel panel-body">
+            <form>
+              <div class="input-group form-search">
+                <input class="form-control search-query" type="search" name="search" id="search" placeholder="Location">
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-primary" id="submit">
+                    <span class="glyphicon glyphicon-search"></span>
+                  </button>
+                  <button type="button" class="btn btn-primary" id="current_location" data-type="last">
+                    <span class="glyphicon glyphicon-map-marker"></span>
+                  </button>
+                </span>
+              </div>
+            </form>
+            <ul id="savedlocations">
+              <a href="#" id="currentlocation"></a>
+            </ul>
+          </div>
         </header>
-        <section id="results">
-        </section>
       </div>
-      <div class="col-md-4">
-        <section id="conditions">
-        </section>
+      <div class="col-md-4" id="results-wrapper">
+        <div class="panel panel-default">
+          <div class="panel panel-heading">Search Results</div>
+          <section class="panel-body" id="results">
+          </section>
+        </div>
       </div>
-      <div class="col-md-4">
-        <section id="forecast">
-        </section>
+      <div class="col-md-4" id="conditions-wrapper">
+        <div class="panel panel-default">
+          <div class="panel panel-heading">Current Conditions</div>
+          <section class="panel-body" id="conditions">
+          </section>
+        </div>
+      </div>
+      <div class="col-md-4" id="forecast-wrapper">
+        <div class="panel panel-default">
+          <div class="panel panel-heading">Forecast</div>
+          <section class="panel-body" id="forecast">
+          </section>
+        </div>
       </div>
     </div>
   </div>
