@@ -14,7 +14,7 @@ function wucallback(data) { // Callback for AJAX
     var conditionsHTML = '<h3>'+data.current_observation.display_location.full+'</h3><p>'+data.current_observation.weather+' &mdash; '+data.current_observation.temp_f+'&deg;F</p><img src="'+data.current_observation.icon_url+'">';
     var forecastHTML = '<h3>'+data.current_observation.display_location.full+'</h3>';
     $.each(data.forecast.simpleforecast.forecastday, function (i, forecast) {
-      forecastHTML += '<p>'+forecast.date.weekday+'</p><img src="'+forecast.icon_url+'" alt="'+forecast.icon+'"><p>'+forecast.high.fahrenheit+'&deg;F '+forecast.low.fahrenheit+'&deg;F</p>';
+      forecastHTML += '<p>'+forecast.date.weekday+'<img src="'+forecast.icon_url+'" alt="'+forecast.icon+'">'+forecast.high.fahrenheit+'&deg;F '+forecast.low.fahrenheit+'&deg;F</p>';
     });
     currentLocationHTML = '<li><img src="' + data.current_observation.icon_url + '">' + data.current_observation.display_location.full + ' ' + data.current_observation.temp_f +  '&deg;F<button class="savelocation">Save</button></li>';
     $('#results-wrapper').hide();
