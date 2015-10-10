@@ -163,7 +163,11 @@
 /*}*/
 
 body {
-  background-color: #FC6E51;
+  background-color: #48CFAD;
+}
+
+.footer {
+  background-color: #48CFAD;
 }
 
 #wu_logo {
@@ -177,3 +181,6 @@ body {
 #results-wrapper, #conditions-wrapper, #forecast-wrapper {
   display: none;
 }
+
+/*#FC6E51*/
+/*#48CFAD*/
